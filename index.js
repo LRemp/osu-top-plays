@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const axios = require('axios');
 const cors = require("cors");
+const BeatmapsCollection = require('./api/Collection');
 const { V1, V2, mods, tools } = require('osu-api-extended');
 require('dotenv').config();
 
@@ -17,6 +18,9 @@ const loginAPIClient = async () => {
 	    console.error(err);
 	}
 }
+
+const BEATMAPS_COLLECTION = new BeatmapsCollection()
+BEATMAPS_COLLECTION.updateMapCollection(v2)
 
 app.use(cors());
 app.use(express.json());

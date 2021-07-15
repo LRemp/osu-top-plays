@@ -1,3 +1,12 @@
+@font-face {
+  font-family: Osu;
+  src: url('./fonts/exo-2-0.otf') format("opentype");
+}
+
+body {
+  background: rgb(24,23,28);
+}
+
 .App {
   text-align: center;
 }
