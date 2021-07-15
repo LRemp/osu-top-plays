@@ -35,6 +35,11 @@ app.post('/ping', (req, res) => {
   res.json({ message: 'pong' });
 });
 
+app.post('/getBeatmaps', (req, res) => {
+
+  res.json(BEATMAPS_COLLECTION.list)
+})
+
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

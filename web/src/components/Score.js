@@ -18,19 +18,23 @@ const ScoreElement = styled.div`
 `
 
 const Shape = styled.div({
-  width: '13%',
-  background: 'rgb(48,46,56)',
+  width: '15%',
+  background: 'rgb(36,34,42)',
   opacity: '0.95',
-  '::before': {
+  
+});
+/*
+'::before': {
     content: "''",
     width: '2%',
     right: '13%',
     'clip-path': 'polygon(0 0,100% 50%,0 100%)',
-    background: 'white',
+    background: 'rgb(48,46,56)',
+    opacity: '0.95',
     height: '100%',
     position: 'absolute',
   }
-});
+  */
 
 const Data = styled.div`
 
@@ -47,7 +51,7 @@ function Score({ data }) {
   }
 
   return (
-    <ScoreElement>
+    <ScoreElement style={{ background: `url(${data.cover})`}}>
       <Data>
       </Data>
       <Shape />

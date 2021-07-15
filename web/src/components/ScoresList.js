@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import Score from './Score'
 import '../App.css';
@@ -14,20 +14,28 @@ const ListContainer = styled.div`
 
 function ScoresList() {
 
+  useEffect(() => {
+    fetchBeatmaps()
+  }, [])
+
+  const [response, updateResponse] = useState("none");
+  const [beatmaps, updateBeatmaps] = useState([]);
+
+  const fetchBeatmaps = () => {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({})
+    };
+
+    fetch('/getBeatmaps', requestOptions)
+      .then(data => data.json())
+      .then(res => updateBeatmaps(res));
+  }
+
   return (
     <ListContainer>
-      <Score />
-      <Score />
-      <Score />
-      <Score />
-      <Score />
-      <Score />
-      <Score />
-      <Score />
-      <Score />
-      <Score />
-      <Score />
-
+      {beatmaps.map((x) => <Score data={{ cover: x.cover }} /> )}
     </ListContainer>
   );
 }
