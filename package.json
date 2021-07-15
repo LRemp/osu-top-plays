@@ -1,0 +1,27 @@
+{
+  "name": "osu-top-plays",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LRemp/osu-top-plays.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LRemp/osu-top-plays/issues"
+  },
+  "homepage": "https://github.com/LRemp/osu-top-plays#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "osu-api-extended": "^1.0.12",
+    "request": "^2.88.2"
+  }
+}
