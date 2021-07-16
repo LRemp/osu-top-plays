@@ -12,7 +12,7 @@ class MapCollection {
 			console.log(x)
 			this.list.push({
 				title: beatmap.title,
-
+				id: beatmap.score,
 				cover: beatmap.beatmapset.covers.slimcover,
 				pp: x.pp,
 				rank: x.rank,
