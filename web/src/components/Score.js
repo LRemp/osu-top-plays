@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import '../App.css';
 
-import {ReactComponent as SH_GRADE} from '../rankicons/SH.svg';
-import {ReactComponent as SS_GRADE} from '../rankicons/SS.svg';
-import {ReactComponent as S_GRADE} from '../rankicons/S.svg';
-import {ReactComponent as A_GRADE} from '../rankicons/A.svg';
-import {ReactComponent as B_GRADE} from '../rankicons/B.svg';
-import {ReactComponent as C_GRADE} from '../rankicons/C.svg';
-import {ReactComponent as D_GRADE} from '../rankicons/D.svg';
+import SH_GRADE from '../rankicons/SH.svg';
+import SS_GRADE from '../rankicons/SS.svg';
+import S_GRADE from '../rankicons/S.svg';
+import A_GRADE from '../rankicons/A.svg';
+import B_GRADE from '../rankicons/B.svg';
+import C_GRADE from '../rankicons/C.svg';
+import D_GRADE from '../rankicons/D.svg';
 
 const GRADE_ICONS = {
   SH: SH_GRADE,
@@ -39,8 +39,20 @@ const Shape = styled.div({
   width: '15%',
   background: 'rgb(36,34,42)',
   opacity: '0.95',
-  
+  color: '#ff66a8',
+  justifyContent: 'center',
+  display: 'flex',
+  alignItems: 'center'
 });
+
+const ContentWrapper = styled.div`
+  height: 100%;
+  background: rgb(48,46,56);
+  opacity: 0.95;
+  width: 100%;
+  display: flex;
+`
+
 /*
 '::before': {
     content: "''",
@@ -55,25 +67,56 @@ const Shape = styled.div({
   */
 
 const Data = styled.div`
-
   height: 100%;
   background: rgb(48,46,56);
   opacity: 0.95;
   width: 100%;
+  display: flex;
+  align-items: center;
 `
+
+const TitleBox = styled.div`
+  text-align: left;
+`;
+
+const MapVersion = styled.span({
+  color: '#e7a208',
+  fontSize: '1.2vh'
+});
 
 function Score({ data }) {
 
   const BeatmapThumbnail = {
-
+    
   }
+
+  const TitleStyle = {
+    color: 'white'
+  }
+
+  const RankIconStyle = {
+    height: '50%',
+    padding: '2vh',
+  }
+
+  console.log(data);
 
 
   return (
     <ScoreElement style={{ background: `url(${data.cover})`}}>
-      <Data>
-      </Data>
-      <Shape />
+      <ContentWrapper>
+        <img style={RankIconStyle} src={GRADE_ICONS[data.rank]}/>
+        <Data>
+          <TitleBox>
+            <span style={TitleStyle}>{data.title}</span>
+            <br />
+            <MapVersion>{data.version}</MapVersion>
+          </TitleBox>
+        </Data>
+        <Shape>
+          {data.pp}PP
+        </Shape>
+      </ContentWrapper>
     </ScoreElement>
   );
 }

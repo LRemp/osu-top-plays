@@ -19,6 +19,8 @@ const loginAPIClient = async () => {
 	}
 }
 
+loginAPIClient();
+
 const BEATMAPS_COLLECTION = new BeatmapsCollection()
 BEATMAPS_COLLECTION.updateMapCollection(v2)
 
@@ -44,8 +46,6 @@ app.post('/getBeatmaps', (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 })
-
-loginAPIClient()
 
 /*(async () => {
   try {

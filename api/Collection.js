@@ -10,12 +10,15 @@ class MapCollection {
 		rawData.data.map(async (x) => {
 			var beatmap = await API_CLIENT.beatmap(x.beatmap_id)
 			console.log(x)
+			console.log(beatmap)
 			this.list.push({
-				title: beatmap.title,
+				title: beatmap.beatmapset.title,
 				id: beatmap.score,
 				cover: beatmap.beatmapset.covers.slimcover,
 				pp: x.pp,
 				rank: x.rank,
+				version: beatmap.version,
+				score_time: x.score_time
 			})
 			//build beatmap data object and push to the list
 		})

@@ -35,7 +35,13 @@ function ScoresList() {
 
   return (
     <ListContainer>
-      {beatmaps.map((x) => <Score key={x.id} data={{ cover: x.cover, rank: x.rank }} /> )}
+      {beatmaps.map((x) => <Score key={x.id} data={{ 
+        cover: x.cover, 
+        rank: x.rank, 
+        pp: x.pp, 
+        title: x.title, 
+        version: x.version, 
+        score_time: x.score_time }} /> )}
     </ListContainer>
   );
 }
