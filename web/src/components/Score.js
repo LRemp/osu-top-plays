@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import '../App.css';
 
+import XH_GRADE from '../rankicons/XH.svg';
 import SH_GRADE from '../rankicons/SH.svg';
 import SS_GRADE from '../rankicons/SS.svg';
 import S_GRADE from '../rankicons/S.svg';
@@ -11,6 +12,7 @@ import C_GRADE from '../rankicons/C.svg';
 import D_GRADE from '../rankicons/D.svg';
 
 const GRADE_ICONS = {
+  XH: XH_GRADE,
   SH: SH_GRADE,
   SS: SS_GRADE,
   S: S_GRADE,
@@ -20,23 +22,23 @@ const GRADE_ICONS = {
   D: D_GRADE,
 }
 
-const ScoreElement = styled.div`
-  position: relative;
-  margin: 1%;
-  width: 98%;
-  height: 8vh;
-  background: url(https://assets.ppy.sh/beatmaps/781509/covers/slimcover.jpg?1622139880);
-  background-size: cover;
-  background-position: center;
+const ScoreElement = styled.div({
+  position: 'relative',
+  margin: '1%',
+  width: '98%',
+  height: '8vh',
+  background: 'url(https://assets.ppy.sh/beatmaps/781509/covers/slimcover.jpg?1622139880)',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
   /*background-color: rgba(0,0,0,0.4);
   background-blend-mode: darken;*/
-  box-shadow: 0 1px 3px rgba(0,0,0,.25);
-  border-radius: 10px;
-  display: flex;
-`
+  boxShadow: '0 1px 3px rgba(0,0,0,.25)',
+  borderRadius: '10px',
+  display: 'flex'
+});
 
 const Shape = styled.div({
-  width: '15%',
+  width: '20%',
   background: 'rgb(36,34,42)',
   opacity: '0.95',
   color: '#ff66a8',
@@ -45,13 +47,13 @@ const Shape = styled.div({
   alignItems: 'center'
 });
 
-const ContentWrapper = styled.div`
-  height: 100%;
-  background: rgb(48,46,56);
-  opacity: 0.95;
-  width: 100%;
-  display: flex;
-`
+const ContentWrapper = styled.div({
+  height: '100%',
+  background: 'rgb(48,46,56)',
+  opacity: '0.95',
+  width: '100%',
+  display: 'flex'
+});
 
 /*
 '::before': {
@@ -66,18 +68,18 @@ const ContentWrapper = styled.div`
   }
   */
 
-const Data = styled.div`
-  height: 100%;
-  background: rgb(48,46,56);
-  opacity: 0.95;
-  width: 100%;
-  display: flex;
-  align-items: center;
-`
+const Data = styled.div({
+  height: '100%',
+  background: 'rgb(48,46,56)',
+  opacity: '0.95',
+  width: '80%',
+  display: 'flex',
+  alignItems: 'center'
+});
 
-const TitleBox = styled.div`
-  text-align: left;
-`;
+const TitleBox = styled.div({
+  textAlign: 'left',
+});
 
 const MapVersion = styled.span({
   color: '#e7a208',

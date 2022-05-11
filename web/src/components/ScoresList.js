@@ -30,6 +30,7 @@ function ScoresList() {
 
     fetch('/getBeatmaps', requestOptions)
       .then(data => data.json())
+      .then(data => data.sort((a, b) => b.pp - a.pp))
       .then(res => updateBeatmaps(res));
   }
 

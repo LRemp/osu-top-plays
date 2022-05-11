@@ -7,20 +7,18 @@ class MapCollection {
 	}
 	async updateMapCollection(API_CLIENT){
 		let rawData = await this.fetchRawMapList()
-		rawData.data.map(async (x) => {
-			var beatmap = await API_CLIENT.beatmap(x.beatmap_id)
-			console.log(x)
-			console.log(beatmap)
+		rawData.data.map(async (score) => {
+			var beatmap = await API_CLIENT.beatmap(score.beatmap_id)
+			console.log(score.pp);
 			this.list.push({
 				title: beatmap.beatmapset.title,
 				id: beatmap.score,
 				cover: beatmap.beatmapset.covers.slimcover,
-				pp: x.pp,
-				rank: x.rank,
+				pp: score.pp,
+				rank: score.rank,
 				version: beatmap.version,
-				score_time: x.score_time
+				score_time: score.score_time
 			})
-			//build beatmap data object and push to the list
 		})
 	}
 	async fetchRawMapList(){
